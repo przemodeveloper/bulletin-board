@@ -1,0 +1,42 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid navy;
+  width: 400px;
+}
+
+.main {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bullet {
+  display: inline-block;
+  margin: 0 2px;
+  transform: scale(0.8);
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.pos {
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+}
+
+.author {
+  font-style: italic;
+  margin-bottom: 12;
+  font-size: 15px;
+}

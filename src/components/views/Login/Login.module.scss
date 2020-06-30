@@ -1,0 +1,18 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-large;
+  color: navy;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 250px;
+}
+
+.button {
+  font-size: large;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

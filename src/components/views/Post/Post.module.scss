@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  min-width: 250px;
+  min-height: 150px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid navy;
+  border-radius: 5px;
+}
+
+.bullet {
+  display: inline-block;
+  margin: 0 2px;
+  transform: scale(0.8);
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.pos {
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+}
+
+.author {
+  font-style: italic;
+  margin-bottom: 12;
+  font-size: 15px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

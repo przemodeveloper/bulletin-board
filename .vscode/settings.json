@@ -1,0 +1,6 @@
+{
+    "git.ignoreLimitWarning": true,
+    "blueprint.templatesPath": [
+      "./dev/blueprint-templates"
+    ]
+}
