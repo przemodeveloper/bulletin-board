@@ -7,9 +7,7 @@ import styles from './Homepage.module.scss';
 import PostAdd from '../PostAdd/PostAdd';
 import Post from '../Post/Post';
 import TextField from '@material-ui/core/TextField';
-import axios from 'axios';
 import { database } from '../../../database';
-import Login from '../Login/Login';
 
 
 class Homepage extends Component {
@@ -33,7 +31,7 @@ class Homepage extends Component {
       content: this.state.content,
       author: this.state.author,
     };
-    if (newAd.title.length != 0 && newAd.content.length != 0 && newAd.author.length != 0) {
+    if (newAd.title.length !== 0 && newAd.content.length !== 0 && newAd.author.length !== 0) {
       this.setState(prevState => ({
         listOfAds: [...prevState.listOfAds, newAd],
       }));
@@ -46,7 +44,7 @@ class Homepage extends Component {
 
   postDelete = (postId) => {
     this.setState((prevState) => {
-      return {listOfAds: prevState.listOfAds.filter(post => post.id != postId)};
+      return {listOfAds: prevState.listOfAds.filter(post => post.id !== postId)};
     });
   }
 

@@ -20,7 +20,7 @@ class ShowPost extends Component {
 
   componentDidMount() {
     this.setState({listOfAds: database});
-    const match = database.find( item => item.id == this.props.match.params.id );
+    const match = database.find( item => item.id === Number(this.props.match.params.id) );
     this.setState({title: match.title, content: match.content, author: match.author});
   }
 
