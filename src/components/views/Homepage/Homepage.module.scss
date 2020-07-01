@@ -34,14 +34,15 @@
    justify-content: center;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    color: navy;
+   font-weight: normal;
  }
 
  .field {
-   border: 2px solid navy;
+   outline: none;
    border-radius: 5px;
  }
 
  .multi {
-  border: 2px solid navy;
+  outline: none;
   border-radius: 5px;
  }
