@@ -6,13 +6,12 @@
   align-items: center;
   text-align: center;
   border-radius: 5px;
-  border: 2px solid navy;
+  border: 1px solid navy;
   width: 400px;
 }
 
 .main {
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,4 +38,9 @@
   font-style: italic;
   margin-bottom: 12;
   font-size: 15px;
+}
+
+.status {
+  font-size: 10px;
+  font-style: normal;
 }

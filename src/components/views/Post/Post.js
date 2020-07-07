@@ -14,7 +14,7 @@ class Post extends Component {
 
   render() {
     return (
-      <Card className={styles.root} onClick={this.props.clicked}>
+      <Card className={styles.root}>
         <CardContent className={styles.card}>
           <Typography className={styles.title} color="textSecondary" gutterBottom>
             {this.props.title}
@@ -27,6 +27,7 @@ class Post extends Component {
           </Typography>
           <Typography className={styles.author} color="textSecondary">
             <Link to={this.props.link}>Show details</Link>
+            <p onClick={this.props.clicked} className={styles.delete}>or delete</p>
           </Typography>
         </CardContent>
       </Card>

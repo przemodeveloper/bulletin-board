@@ -7,21 +7,30 @@ import styles from './ShowPost.module.scss';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { database } from '../../../database';
+import axios from 'axios';
 
 class ShowPost extends Component {
 
   state = {
     listOfAds: [],
     title: [],
-    content: [],
+    text: [],
     author: [],
+    created: [],
+    status: [],
   }
 
   componentDidMount() {
-    this.setState({listOfAds: database});
-    const match = database.find( item => item.id === Number(this.props.match.params.id) );
-    this.setState({title: match.title, content: match.content, author: match.author});
+    axios.get('http://localhost:8000/api/posts')
+      .then(res => {
+        console.log(res.data);
+        this.setState({listOfAds: res.data});
+        const match = this.state.listOfAds.find( item => item._id == this.props.match.params.id );
+        this.setState({title: match.title, text: match.text, author: match.author, created: match.created, status: match.status});
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -33,10 +42,13 @@ class ShowPost extends Component {
               {this.state.title}
             </Typography>
             <Typography className={styles.pos} color="textSecondary">
-              {this.state.content}
+              {this.state.text}
             </Typography>
             <Typography className={styles.author} color="textSecondary">
               {this.state.author}
+            </Typography>
+            <Typography className={styles.status} color="textSecondary">
+              <p>Created on {this.state.created}, status: {this.state.status}</p>
             </Typography>
           </CardContent>
         </Card>

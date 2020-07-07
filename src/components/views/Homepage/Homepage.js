@@ -7,44 +7,58 @@ import styles from './Homepage.module.scss';
 import PostAdd from '../PostAdd/PostAdd';
 import Post from '../Post/Post';
 import TextField from '@material-ui/core/TextField';
-import { database } from '../../../database';
+import axios from 'axios';
 
 
 class Homepage extends Component {
 
   state = {
     title: '',
-    content: '',
+    text: '',
     author: '',
     listOfAds: [],
     helperText: '',
   }
 
   componentDidMount() {
-    this.setState({listOfAds: database});
+    axios.get('http://localhost:8000/api/posts')
+      .then(res => {
+        console.log(res.data);
+        this.setState({listOfAds: res.data});
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
-  postAd = (event) => {
-    const newAd = {
-      id: this.state.listOfAds.length + 1,
-      title: this.state.title,
-      content: this.state.content,
-      author: this.state.author,
-    };
-    if (newAd.title.length !== 0 && newAd.content.length !== 0 && newAd.author.length !== 0) {
-      this.setState(prevState => ({
-        listOfAds: [...prevState.listOfAds, newAd],
-      }));
+  postAd = () => {
+    if (this.state.title.length !== 0 && this.state.text.length !== 0 && this.state.author.length !== 0) {
+      axios.post('http://localhost:8000/api/posts', {
+        title: this.state.title,
+        text: this.state.text,
+        author: this.state.author,
+        status: 'published',
+        created: new Date(),
+      })
+        .then((response) => {
+          console.log(response);
+        }, (error) => {
+          console.log(error);
+        });
+      window.location.reload(false);
     } else {
       this.setState({helperText: 'Please provide input.'});
     }
-    event.preventDefault();
-    console.log(this.state.listOfAds);
   }
 
   postDelete = (postId) => {
+    axios.delete(`http://localhost:8000/api/posts/${postId}`)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      });
     this.setState((prevState) => {
-      return {listOfAds: prevState.listOfAds.filter(post => post.id !== postId)};
+      return {listOfAds: prevState.listOfAds.filter(post => post._id !== postId)};
     });
   }
 
@@ -72,7 +86,7 @@ class Homepage extends Component {
             rowsMax="4"
             helperText={this.state.helperText}
             value={this.state.content}
-            onChange={(event) => this.setState({content: event.target.value})}
+            onChange={(event) => this.setState({text: event.target.value})}
             margin="normal"
             variant="outlined"
           />
@@ -93,14 +107,14 @@ class Homepage extends Component {
         <div className={styles.container}>
           {this.state.listOfAds.map(single => {
             return <div
-              key={single.id + 1}
+              key={single._id}
               className={styles.space}>
-              <Post key={single.id}
-                id={single.id}
+              <Post key={single._id}
+                id={single._id}
                 title={single.title}
-                link={'/homepage/post/' + single.id}
-                content={single.content}
-                clicked={() => this.postDelete(single.id)}
+                link={'/homepage/post/' + single._id}
+                //content={single.text}
+                clicked={() => this.postDelete(single._id)}
                 author={single.author}/>
             </div>;
           })}
