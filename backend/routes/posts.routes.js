@@ -40,6 +40,24 @@ router.post('/posts', async (req, res) => {
   }
 });
 
+router.put('/posts/:id', async (req, res) => {
+  const { author, title, text } = req.body;
+  try {
+    const updatedPost = await(Post.findById(req.params.id));
+    if(updatedPost) {
+      updatedPost.author = author;
+      updatedPost.title = title;
+      updatedPost.text = text;
+      await updatedPost.save();
+      res.json({ message: 'OK'});
+    }
+    else res.status(404).json({ message: 'Not found...'});
+  }
+  catch(err) {
+    res.status(500).json({ message: err});
+  }
+});
+
 router.delete('/posts/:id', async (req, res) => {
   try {
     const post = await(Post.findById(req.params.id));

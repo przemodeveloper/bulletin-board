@@ -81,7 +81,7 @@ class Homepage extends Component {
           <TextField
             id="outlined-multiline-flexible"
             className={styles.multi}
-            label="Content"
+            label="Text"
             multiline
             rowsMax="4"
             helperText={this.state.helperText}
