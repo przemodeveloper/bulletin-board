@@ -13,7 +13,7 @@ class Login extends Component {
       <div className={styles.root}>
         <h1>Bulletin Board</h1>
         <Button variant="contained" color="primary" onClick={this.redirectToGoogle} className={styles.button}>
-          Login with Google
+          Enter bulletin board
         </Button>
       </div>
     );
