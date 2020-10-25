@@ -1,5 +1,9 @@
 @import '../../../styles/settings.scss';
 
+body {
+  background-color: #F0F0F0;
+}
+
  .root {
    display: flex;
    max-width: 900px;
@@ -32,17 +36,21 @@
  .title {
    display: flex;
    justify-content: center;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-family: 'Oswald', sans-serif;
    color: navy;
-   font-weight: normal;
  }
 
  .field {
    outline: none;
    border-radius: 5px;
+   font-family: 'Oswald', sans-serif;
+   background-color: white;
  }
 
  .multi {
   outline: none;
   border-radius: 5px;
+  font-family: 'Oswald', sans-serif;
+  background-color: white;
  }
+

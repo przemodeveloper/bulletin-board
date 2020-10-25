@@ -19,30 +19,32 @@
   align-items: center;
 }
 
-.bullet {
-  display: inline-block;
-  margin: 0 2px;
-  transform: scale(0.8);
-}
-
 .title {
   font-size: 40px;
   font-weight: bold;
+  font-family: 'Oswald', sans-serif;
 }
 
 .pos {
   flex-wrap: wrap;
   margin-bottom: 20px;
   font-size: 30px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .author {
   font-style: italic;
   margin-bottom: 12;
   font-size: 25px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .status {
   font-size: 20px;
   font-style: normal;
+  font-family: 'Oswald', sans-serif;
+}
+
+.button {
+  font-family: 'Oswald', sans-serif;
 }

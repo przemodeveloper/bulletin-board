@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 import styles from './ShowPost.module.scss';
-//import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -124,7 +121,7 @@ class ShowPost extends Component {
                 <Link to='/homepage'>Go to main page</Link>
               </Typography>
             </CardContent>}
-          <Button onClick={this.postEdit} variant="contained" color="primary">
+          <Button className={styles.button} onClick={this.postEdit} variant="contained" color="primary">
             {this.state.buttonName}
           </Button>
         </Card>
@@ -132,7 +129,6 @@ class ShowPost extends Component {
     );
   }
 }
-
 
 ShowPost.propTypes = {
   className: PropTypes.string,
@@ -145,15 +141,5 @@ ShowPost.propTypes = {
     }),
   }),
 };
-
-// const mapStateToProps = (state) => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export default ShowPost;

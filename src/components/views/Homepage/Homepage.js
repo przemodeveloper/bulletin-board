@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 import styles from './Homepage.module.scss';
-//import clsx from 'clsx';
 import PostAdd from '../PostAdd/PostAdd';
 import Post from '../Post/Post';
 import TextField from '@material-ui/core/TextField';
@@ -113,7 +110,6 @@ class Homepage extends Component {
                 id={single._id}
                 title={single.title}
                 link={'/homepage/post/' + single._id}
-                //content={single.text}
                 clicked={() => this.postDelete(single._id)}
                 author={single.author}/>
             </div>;
@@ -129,15 +125,5 @@ class Homepage extends Component {
 Homepage.propTypes = {
   className: PropTypes.string,
 };
-
-// const mapStateToProps = (state) => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export default Homepage;

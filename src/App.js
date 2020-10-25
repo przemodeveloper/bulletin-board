@@ -1,12 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-//import { Provider } from 'react-redux';
-
 import { createMuiTheme, StylesProvider, ThemeProvider } from '@material-ui/core/styles';
-//import CssBaseLine from '@material-ui/core';
-
-//import { store } from './redux/store';
-
 import PostEdit from './components/views/PostEdit/PostEdit';
 import PostAdd from './components/views/PostAdd/PostAdd';
 import ShowPost from './components/views/ShowPost/ShowPost';
@@ -22,11 +16,9 @@ const theme = createMuiTheme({
 });
 
 const App = () => (
-  // <Provider store={store}>
   <BrowserRouter>
     <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
-        {/* <CssBaseLine /> */}
         <MainLayout>
           <Switch>
             <Route exact path='/' component={Login} />
@@ -40,7 +32,6 @@ const App = () => (
       </ThemeProvider>
     </StylesProvider>
   </BrowserRouter>
-  // </Provider>
 );
 
 export default App;
