@@ -1,8 +1,17 @@
+## Title
+Bulletin Board
+
 ## Description
-This is a full stack app that allows to post, update and delete previously added ads. Frontend was created using React, Backend - Express and MongoDB.
+Bulletin Board allows to create an advertisement, publish it on the advertisement list, check advertisement details, publication date, edit advertisements.
 
-## Running
-To run an app, in the project directory, type in the console 'npm start' or 'yarn start'. In the backend directory - 'nodemon server.js'.
+## Project status
+Completed
 
-## Building
-To build an app, in the project directory, type in the console 'npm run-script build'.
+## Technology
+React, Express, MongoDB
+
+## Launch
+1. clone repository
+2. npm install
+3. npm start / yarn start
+
